@@ -1,0 +1,49 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+
+<header id="header" class="header d-flex align-items-center fixed-top">
+    <div class="container-fluid container-xl position-relative d-flex align-items-center">
+
+        <!-- Logo de l'entreprise -->
+        <a href="index.html" class="logo d-flex align-items-center me-auto">
+            <!-- Remplacer le commentaire par un logo image si disponible -->
+            <!-- <img src="assets/img/logo.png" alt="Logo Entreprise"> -->
+            <h1 class="sitename">MecaTrans</h1>
+        </a>
+
+        <!-- Menu de navigation -->
+        <nav id="navmenu" class="navmenu">
+            <ul>
+                <li><a asp-controller="Home" class="active">Accueil</a></li>
+                <li><a asp-controller="Apropos">À propos</a></li>
+                <li><a asp-controller="NosService">Nos Services</a></li>
+                <li><a asp-controller="Vehicle">Nos Véhicules</a></li>
+                <li><a asp-controller="Tarifs">Tarifs</a></li>
+                <li class="dropdown">
+                    <a href="#"><span>Options</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+                    <ul>
+                        <li><a asp-controller="Offre">Obtenir un Devis</a></li>
+                        <li class="dropdown">
+                            <a href="#"><span>Types de Véhicules</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+                            <ul>
+                                <li><a href="#">Camions</a></li>
+                                <li><a href="#">Fourgonnettes</a></li>
+                                <li><a href="#">Véhicules Utilitaires</a></li>
+                                <li><a href="#">Véhicules de Luxe</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+        </nav>
+
+        <!-- Bouton d'appel à l'action -->
+        <a class="btn-getstarted" asp-controller="Offre">Obtenir un Devis</a>
+
+    </div>
+</header>

@@ -1,0 +1,12 @@
+[
+  {
+    "ContainingType": "GestionVoitureFrontOffice.Controllers.LoginAPIController",
+    "Method": "Get",
+    "RelativePath": "admin/api/LoginAPI",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  }
+]

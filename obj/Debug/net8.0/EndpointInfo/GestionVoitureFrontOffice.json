@@ -1,0 +1,23 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "API Gestion Voiture Front Office",
+    "description": "Documentation de l'API",
+    "version": "v1"
+  },
+  "paths": {
+    "/admin/api/LoginAPI": {
+      "get": {
+        "tags": [
+          "LoginAPI"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    }
+  },
+  "components": { }
+}

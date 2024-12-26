@@ -1,0 +1,82 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewData["Title"] = "Nos Voiture";
+}
+@model IEnumerable<GestionVoitureFrontOffice.Models.Vehicle>
+
+<!-- Page Title -->
+<div class="page-title dark-background" data-aos="fade" style="background-image: url(~/assets/img/page-title-bg.jpg);">
+    <div class="container position-relative">
+        <h1>Nos Voitures</h1>
+        <p>Découvrez notre sélection de voitures disponibles à la location. Que ce soit pour une escapade, un événement spécial, ou un besoin professionnel, nous avons le véhicule qu'il vous faut.</p>
+        <nav class="breadcrumbs">
+            <ol>
+                <li><a href="index.html">Accueil</a></li>
+                <li class="current">Voitures</li>
+            </ol>
+        </nav>
+    </div>
+</div><!-- End Page Title -->
+
+<section id="featured-services" class="featured-services section">
+    <div class="container">
+        <div class="row gy-4">
+            <div class="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="100">
+                <div class="icon flex-shrink-0"><i class="fa-solid fa-cart-flatbed"></i></div>
+                <div>
+                    <h4 class="title">Services de Transport</h4>
+                    <p class="description">Nous fournissons des solutions de transport adaptées à vos besoins, que ce soit pour la livraison locale ou internationale.</p>
+                    <a href="#" class="readmore stretched-link"><span>En savoir plus</span><i class="bi bi-arrow-right"></i></a>
+                </div>
+            </div><!-- End Service Item -->
+
+            <div class="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="200">
+                <div class="icon flex-shrink-0"><i class="fa-solid fa-truck"></i></div>
+                <div>
+                    <h4 class="title">Logistique</h4>
+                    <p class="description">Nous assurons la gestion efficace de vos flux logistiques pour garantir une livraison rapide et fiable.</p>
+                    <a href="#" class="readmore stretched-link"><span>En savoir plus</span><i class="bi bi-arrow-right"></i></a>
+                </div>
+            </div><!-- End Service Item -->
+
+            <div class="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="300">
+                <div class="icon flex-shrink-0"><i class="fa-solid fa-truck-ramp-box"></i></div>
+                <div>
+                    <h4 class="title">Emballage et Expédition</h4>
+                    <p class="description">Nous offrons des solutions d'emballage et d'expédition pour garantir que vos produits arrivent en toute sécurité et en temps voulu.</p>
+                    <a href="#" class="readmore stretched-link"><span>En savoir plus</span><i class="bi bi-arrow-right"></i></a>
+                </div>
+            </div><!-- End Service Item -->
+        </div>
+    </div>
+</section><!-- /Featured Services Section -->
+<!-- Car Catalogue Section -->
+<section id="car-catalogue" class="services section">
+    <!-- Section Title -->
+    <div class="container section-title" data-aos="fade-up">
+        <span>Nos Voitures</span>
+        <h2>Nos Voitures</h2>
+        <p>Découvrez notre large sélection de voitures disponibles à la location. Des modèles adaptés à tous vos besoins de transport.</p>
+    </div><!-- End Section Title -->
+
+    <div class="container">
+        <div class="row gy-4">
+            @foreach (var vehicle in Model){
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="card">
+                        <div class="card-img">
+                            <img src="@Url.Content("~/assets/img/vehicle/" + vehicle.PhotoUrl)"
+                                 alt="@vehicle.Model" alt="Voiture 1" class="img-fluid">
+                        </div>
+                        <h3><a href="@Url.Action("Details", "Vehicle", new { id = vehicle.Id })" class="stretched-link">@vehicle.TypeVehicle.Name</a></h3>
+                        <p>@vehicle.Descriptions</p>
+                        <p><strong>Numero matricule:</strong> @vehicle.Number</p>
+                        <a href="@Url.Action("Details", "Vehicle", new { id = vehicle.Id })" class="stretched-link">Voir Détails</a>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</section><!-- /Car Catalogue Section -->

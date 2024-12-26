@@ -1,0 +1,224 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\Dev Web\\Master\\Master 2 MBDS\\Backend et Cybers\u00E9curit\u00E9\\doteNet\\Examen\\GestionVoitureFrontOffice\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{D2EBD15A-B153-4A0C-9EB8-27EBB1EC1EBF}|GestionVoitureFrontOffice.csproj|d:\\dev web\\master\\master 2 mbds\\backend et cybers\u00E9curit\u00E9\\dotenet\\examen\\gestionvoiturefrontoffice\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{D2EBD15A-B153-4A0C-9EB8-27EBB1EC1EBF}|GestionVoitureFrontOffice.csproj|solutionrelative:views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D2EBD15A-B153-4A0C-9EB8-27EBB1EC1EBF}|GestionVoitureFrontOffice.csproj|d:\\dev web\\master\\master 2 mbds\\backend et cybers\u00E9curit\u00E9\\dotenet\\examen\\gestionvoiturefrontoffice\\views\\vehicle\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{D2EBD15A-B153-4A0C-9EB8-27EBB1EC1EBF}|GestionVoitureFrontOffice.csproj|solutionrelative:views\\vehicle\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D2EBD15A-B153-4A0C-9EB8-27EBB1EC1EBF}|GestionVoitureFrontOffice.csproj|d:\\dev web\\master\\master 2 mbds\\backend et cybers\u00E9curit\u00E9\\dotenet\\examen\\gestionvoiturefrontoffice\\models\\offer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D2EBD15A-B153-4A0C-9EB8-27EBB1EC1EBF}|GestionVoitureFrontOffice.csproj|solutionrelative:models\\offer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D2EBD15A-B153-4A0C-9EB8-27EBB1EC1EBF}|GestionVoitureFrontOffice.csproj|d:\\dev web\\master\\master 2 mbds\\backend et cybers\u00E9curit\u00E9\\dotenet\\examen\\gestionvoiturefrontoffice\\controllers\\offrecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D2EBD15A-B153-4A0C-9EB8-27EBB1EC1EBF}|GestionVoitureFrontOffice.csproj|solutionrelative:controllers\\offrecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D2EBD15A-B153-4A0C-9EB8-27EBB1EC1EBF}|GestionVoitureFrontOffice.csproj|d:\\dev web\\master\\master 2 mbds\\backend et cybers\u00E9curit\u00E9\\dotenet\\examen\\gestionvoiturefrontoffice\\controllers\\vehiclecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D2EBD15A-B153-4A0C-9EB8-27EBB1EC1EBF}|GestionVoitureFrontOffice.csproj|solutionrelative:controllers\\vehiclecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D2EBD15A-B153-4A0C-9EB8-27EBB1EC1EBF}|GestionVoitureFrontOffice.csproj|d:\\dev web\\master\\master 2 mbds\\backend et cybers\u00E9curit\u00E9\\dotenet\\examen\\gestionvoiturefrontoffice\\views\\offre\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{D2EBD15A-B153-4A0C-9EB8-27EBB1EC1EBF}|GestionVoitureFrontOffice.csproj|solutionrelative:views\\offre\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D2EBD15A-B153-4A0C-9EB8-27EBB1EC1EBF}|GestionVoitureFrontOffice.csproj|d:\\dev web\\master\\master 2 mbds\\backend et cybers\u00E9curit\u00E9\\dotenet\\examen\\gestionvoiturefrontoffice\\views\\offre\\demamdeoffre.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{D2EBD15A-B153-4A0C-9EB8-27EBB1EC1EBF}|GestionVoitureFrontOffice.csproj|solutionrelative:views\\offre\\demamdeoffre.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D2EBD15A-B153-4A0C-9EB8-27EBB1EC1EBF}|GestionVoitureFrontOffice.csproj|d:\\dev web\\master\\master 2 mbds\\backend et cybers\u00E9curit\u00E9\\dotenet\\examen\\gestionvoiturefrontoffice\\services\\offreservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D2EBD15A-B153-4A0C-9EB8-27EBB1EC1EBF}|GestionVoitureFrontOffice.csproj|solutionrelative:services\\offreservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D2EBD15A-B153-4A0C-9EB8-27EBB1EC1EBF}|GestionVoitureFrontOffice.csproj|d:\\dev web\\master\\master 2 mbds\\backend et cybers\u00E9curit\u00E9\\dotenet\\examen\\gestionvoiturefrontoffice\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D2EBD15A-B153-4A0C-9EB8-27EBB1EC1EBF}|GestionVoitureFrontOffice.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D2EBD15A-B153-4A0C-9EB8-27EBB1EC1EBF}|GestionVoitureFrontOffice.csproj|d:\\dev web\\master\\master 2 mbds\\backend et cybers\u00E9curit\u00E9\\dotenet\\examen\\gestionvoiturefrontoffice\\services\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D2EBD15A-B153-4A0C-9EB8-27EBB1EC1EBF}|GestionVoitureFrontOffice.csproj|solutionrelative:services\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D2EBD15A-B153-4A0C-9EB8-27EBB1EC1EBF}|GestionVoitureFrontOffice.csproj|d:\\dev web\\master\\master 2 mbds\\backend et cybers\u00E9curit\u00E9\\dotenet\\examen\\gestionvoiturefrontoffice\\services\\nostragerservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D2EBD15A-B153-4A0C-9EB8-27EBB1EC1EBF}|GestionVoitureFrontOffice.csproj|solutionrelative:services\\nostragerservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D2EBD15A-B153-4A0C-9EB8-27EBB1EC1EBF}|GestionVoitureFrontOffice.csproj|d:\\dev web\\master\\master 2 mbds\\backend et cybers\u00E9curit\u00E9\\dotenet\\examen\\gestionvoiturefrontoffice\\models\\nostrager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D2EBD15A-B153-4A0C-9EB8-27EBB1EC1EBF}|GestionVoitureFrontOffice.csproj|solutionrelative:models\\nostrager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "D:\\Dev Web\\Master\\Master 2 MBDS\\Backend et Cybers\u00E9curit\u00E9\\doteNet\\Examen\\GestionVoitureFrontOffice\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "D:\\Dev Web\\Master\\Master 2 MBDS\\Backend et Cybers\u00E9curit\u00E9\\doteNet\\Examen\\GestionVoitureFrontOffice\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAABsAAAAcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-12-26T14:14:22.207Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "DemamdeOffre.cshtml",
+              "DocumentMoniker": "D:\\Dev Web\\Master\\Master 2 MBDS\\Backend et Cybers\u00E9curit\u00E9\\doteNet\\Examen\\GestionVoitureFrontOffice\\Views\\Offre\\DemamdeOffre.cshtml",
+              "RelativeDocumentMoniker": "Views\\Offre\\DemamdeOffre.cshtml",
+              "ToolTip": "D:\\Dev Web\\Master\\Master 2 MBDS\\Backend et Cybers\u00E9curit\u00E9\\doteNet\\Examen\\GestionVoitureFrontOffice\\Views\\Offre\\DemamdeOffre.cshtml",
+              "RelativeToolTip": "Views\\Offre\\DemamdeOffre.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-12-26T07:27:24.431Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Offer.cs",
+              "DocumentMoniker": "D:\\Dev Web\\Master\\Master 2 MBDS\\Backend et Cybers\u00E9curit\u00E9\\doteNet\\Examen\\GestionVoitureFrontOffice\\Models\\Offer.cs",
+              "RelativeDocumentMoniker": "Models\\Offer.cs",
+              "ToolTip": "D:\\Dev Web\\Master\\Master 2 MBDS\\Backend et Cybers\u00E9curit\u00E9\\doteNet\\Examen\\GestionVoitureFrontOffice\\Models\\Offer.cs",
+              "RelativeToolTip": "Models\\Offer.cs",
+              "ViewState": "AgIAAAIAAAAAAAAAAAAqwBEAAAAtAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-26T06:01:15.68Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "D:\\Dev Web\\Master\\Master 2 MBDS\\Backend et Cybers\u00E9curit\u00E9\\doteNet\\Examen\\GestionVoitureFrontOffice\\Views\\Offre\\Index.cshtml",
+              "RelativeDocumentMoniker": "Views\\Offre\\Index.cshtml",
+              "ToolTip": "D:\\Dev Web\\Master\\Master 2 MBDS\\Backend et Cybers\u00E9curit\u00E9\\doteNet\\Examen\\GestionVoitureFrontOffice\\Views\\Offre\\Index.cshtml",
+              "RelativeToolTip": "Views\\Offre\\Index.cshtml",
+              "ViewState": "AgIAADAAAAAAAAAAAAAAAFcAAAAXAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-12-26T05:04:09.292Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "OffreController.cs",
+              "DocumentMoniker": "D:\\Dev Web\\Master\\Master 2 MBDS\\Backend et Cybers\u00E9curit\u00E9\\doteNet\\Examen\\GestionVoitureFrontOffice\\Controllers\\OffreController.cs",
+              "RelativeDocumentMoniker": "Controllers\\OffreController.cs",
+              "ToolTip": "D:\\Dev Web\\Master\\Master 2 MBDS\\Backend et Cybers\u00E9curit\u00E9\\doteNet\\Examen\\GestionVoitureFrontOffice\\Controllers\\OffreController.cs",
+              "RelativeToolTip": "Controllers\\OffreController.cs",
+              "ViewState": "AgIAAAoAAAAAAAAAAAAQwBcAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-26T05:00:29.145Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Details.cshtml",
+              "DocumentMoniker": "D:\\Dev Web\\Master\\Master 2 MBDS\\Backend et Cybers\u00E9curit\u00E9\\doteNet\\Examen\\GestionVoitureFrontOffice\\Views\\Vehicle\\Details.cshtml",
+              "RelativeDocumentMoniker": "Views\\Vehicle\\Details.cshtml",
+              "ToolTip": "D:\\Dev Web\\Master\\Master 2 MBDS\\Backend et Cybers\u00E9curit\u00E9\\doteNet\\Examen\\GestionVoitureFrontOffice\\Views\\Vehicle\\Details.cshtml",
+              "RelativeToolTip": "Views\\Vehicle\\Details.cshtml",
+              "ViewState": "AgIAAJYAAAAAAAAAAAAAAMcAAABSAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-12-25T18:01:37.196Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "VehicleController.cs",
+              "DocumentMoniker": "D:\\Dev Web\\Master\\Master 2 MBDS\\Backend et Cybers\u00E9curit\u00E9\\doteNet\\Examen\\GestionVoitureFrontOffice\\Controllers\\VehicleController.cs",
+              "RelativeDocumentMoniker": "Controllers\\VehicleController.cs",
+              "ToolTip": "D:\\Dev Web\\Master\\Master 2 MBDS\\Backend et Cybers\u00E9curit\u00E9\\doteNet\\Examen\\GestionVoitureFrontOffice\\Controllers\\VehicleController.cs",
+              "RelativeToolTip": "Controllers\\VehicleController.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAYwBwAAAAvAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-25T18:49:30.863Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "OffreService.cs",
+              "DocumentMoniker": "D:\\Dev Web\\Master\\Master 2 MBDS\\Backend et Cybers\u00E9curit\u00E9\\doteNet\\Examen\\GestionVoitureFrontOffice\\Services\\OffreService.cs",
+              "RelativeDocumentMoniker": "Services\\OffreService.cs",
+              "ToolTip": "D:\\Dev Web\\Master\\Master 2 MBDS\\Backend et Cybers\u00E9curit\u00E9\\doteNet\\Examen\\GestionVoitureFrontOffice\\Services\\OffreService.cs",
+              "RelativeToolTip": "Services\\OffreService.cs",
+              "ViewState": "AgIAADIAAAAAAAAAAAAqwFAAAABVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-26T06:04:02.991Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "UserService.cs",
+              "DocumentMoniker": "D:\\Dev Web\\Master\\Master 2 MBDS\\Backend et Cybers\u00E9curit\u00E9\\doteNet\\Examen\\GestionVoitureFrontOffice\\Services\\UserService.cs",
+              "RelativeDocumentMoniker": "Services\\UserService.cs",
+              "ToolTip": "D:\\Dev Web\\Master\\Master 2 MBDS\\Backend et Cybers\u00E9curit\u00E9\\doteNet\\Examen\\GestionVoitureFrontOffice\\Services\\UserService.cs",
+              "RelativeToolTip": "Services\\UserService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-26T05:59:09.498Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\Dev Web\\Master\\Master 2 MBDS\\Backend et Cybers\u00E9curit\u00E9\\doteNet\\Examen\\GestionVoitureFrontOffice\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "D:\\Dev Web\\Master\\Master 2 MBDS\\Backend et Cybers\u00E9curit\u00E9\\doteNet\\Examen\\GestionVoitureFrontOffice\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAABIAAAAAAAAAAAAAACAAAAAuAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-25T19:05:00.68Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "NosTragerService.cs",
+              "DocumentMoniker": "D:\\Dev Web\\Master\\Master 2 MBDS\\Backend et Cybers\u00E9curit\u00E9\\doteNet\\Examen\\GestionVoitureFrontOffice\\Services\\NosTragerService.cs",
+              "RelativeDocumentMoniker": "Services\\NosTragerService.cs",
+              "ToolTip": "D:\\Dev Web\\Master\\Master 2 MBDS\\Backend et Cybers\u00E9curit\u00E9\\doteNet\\Examen\\GestionVoitureFrontOffice\\Services\\NosTragerService.cs",
+              "RelativeToolTip": "Services\\NosTragerService.cs",
+              "ViewState": "AgIAABAAAAAAAAAAAAAQwAYAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-25T18:45:55.946Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "NosTrager.cs",
+              "DocumentMoniker": "D:\\Dev Web\\Master\\Master 2 MBDS\\Backend et Cybers\u00E9curit\u00E9\\doteNet\\Examen\\GestionVoitureFrontOffice\\Models\\NosTrager.cs",
+              "RelativeDocumentMoniker": "Models\\NosTrager.cs",
+              "ToolTip": "D:\\Dev Web\\Master\\Master 2 MBDS\\Backend et Cybers\u00E9curit\u00E9\\doteNet\\Examen\\GestionVoitureFrontOffice\\Models\\NosTrager.cs",
+              "RelativeToolTip": "Models\\NosTrager.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-25T18:44:29.591Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
