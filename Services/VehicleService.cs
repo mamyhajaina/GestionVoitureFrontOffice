@@ -104,5 +104,79 @@ namespace GestionVoitureFrontOffice.Services
 
             return vehicle;
         }
+
+        public async Task<(List<Vehicle> Vehicles, int TotalCount)> ShearchVehiclesAsync(string? textSearched, int? page = 1, int? pageSize = 6)
+        {
+            var vehicles = new List<Vehicle>();
+            int totalCount = 0;
+
+            using (SqlConnection con = new SqlConnection(_connectionString))
+            {
+                await con.OpenAsync();
+                string query = @"
+                    SELECT v.[Id], v.[Number], v.[Pseudo], v.[TypeVehicleId], v.[Brand], v.[Model], 
+                           v.[Capacity], v.[Descriptions], v.[TableKilometer], v.[PhotoUrl],
+                           tv.[Name] AS TypeVehicleName,
+                           COUNT(*) OVER() AS TotalCount
+                    FROM [Vehicles] v
+                    INNER JOIN [TypeVehicle] tv ON v.[TypeVehicleId] = tv.[Id]
+                    WHERE (@TextSearched IS NULL OR v.[Number] LIKE '%' + @TextSearched + '%')
+                        OR (@TextSearched IS NULL OR v.[Brand] LIKE '%' + @TextSearched + '%')
+                        OR (@TextSearched IS NULL OR v.[Model] LIKE '%' + @TextSearched + '%')
+                        OR (@TextSearched IS NULL OR v.[Capacity] LIKE '%' + @TextSearched + '%')
+                        OR (@TextSearched IS NULL OR v.[Descriptions] LIKE '%' + @TextSearched + '%')
+                        OR (@TextSearched IS NULL OR v.[Capacity] LIKE '%' + @TextSearched + '%')
+                        OR (@TextSearched IS NULL OR tv.[Name] LIKE '%' + @TextSearched + '%')
+                    ORDER BY v.[Id]
+                    OFFSET @Offset ROWS FETCH NEXT @PageSize ROWS ONLY";
+
+                using (SqlCommand cmd = new SqlCommand(query, con))
+                {
+                    // Paramètres
+                    cmd.Parameters.AddWithValue("@TextSearched", (object?)textSearched ?? DBNull.Value);
+                    cmd.Parameters.AddWithValue("@Offset", (page.GetValueOrDefault(1) - 1) * pageSize.GetValueOrDefault(6));
+                    cmd.Parameters.AddWithValue("@PageSize", pageSize.GetValueOrDefault(6));
+
+                    using (SqlDataReader reader = await cmd.ExecuteReaderAsync())
+                    {
+                        while (await reader.ReadAsync())
+                        {
+                            // Lecture des données du véhicule
+                            var vehicle = new Vehicle
+                            {
+                                Id = Convert.ToInt32(reader["Id"]),
+                                Number = reader["Number"]?.ToString(),
+                                Pseudo = reader["Pseudo"]?.ToString(),
+                                TypeVehicleId = Convert.ToInt32(reader["TypeVehicleId"]),
+                                Brand = reader["Brand"]?.ToString(),
+                                Model = reader["Model"]?.ToString(),
+                                Capacity = Convert.ToInt32(reader["Capacity"]),
+                                Descriptions = reader["Descriptions"]?.ToString(),
+                                TableKilometer = Convert.ToInt32(reader["TableKilometer"]),
+                                PhotoUrl = reader["PhotoUrl"]?.ToString(),
+                                TypeVehicle = new TypeVehicle
+                                {
+                                    Id = Convert.ToInt32(reader["TypeVehicleId"]),
+                                    Name = reader["TypeVehicleName"]?.ToString()
+                                }
+                            };
+
+                            vehicles.Add(vehicle);
+
+                            // Récupérer le total des enregistrements
+                            if (totalCount == 0)
+                            {
+                                totalCount = Convert.ToInt32(reader["TotalCount"]);
+                            }
+                        }
+                    }
+                }
+            }
+
+            return (vehicles, totalCount);
+        }
+
+
+
     }
 }

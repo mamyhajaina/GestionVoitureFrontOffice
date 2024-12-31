@@ -1,8 +1,18 @@
 [
   {
-    "ContainingType": "GestionVoitureFrontOffice.Controllers.LoginAPIController",
+    "ContainingType": "GestionVoitureFrontOffice.Controllers.API.LoginAPIController",
     "Method": "Get",
-    "RelativePath": "admin/api/LoginAPI",
+    "RelativePath": "api/LoginAPI",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "GestionVoitureFrontOffice.Controllers.API.OffreAPIController",
+    "Method": "Get",
+    "RelativePath": "api/OffreAPI",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,

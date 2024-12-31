@@ -7,7 +7,8 @@ namespace GestionVoitureFrontOffice.Services
     {
         public readonly string _connectionString;
 
-        public UserService(IConfiguration configuration) {
+        public UserService(IConfiguration configuration)
+        {
             _connectionString = configuration.GetConnectionString("DefaultConnection");
         }
 
@@ -35,8 +36,8 @@ namespace GestionVoitureFrontOffice.Services
                             PasswordHash = reader["PasswordHash"].ToString(),
                             RoleId = Convert.ToInt32(reader["RoleId"]),
                             CreatedAt = Convert.ToDateTime(reader["CreatedAt"]),
-                            UpdatedAt = reader["UpdatedAt"] != DBNull.Value ? Convert.ToDateTime(reader["UpdatedAt"]) : (DateTime?)null,
-                            IsActive = reader["IsActive"] != DBNull.Value ? Convert.ToBoolean(reader["IsActive"]) : (bool?)null
+                            UpdatedAt = reader["UpdatedAt"] != DBNull.Value ? Convert.ToDateTime(reader["UpdatedAt"]) : null,
+                            IsActive = reader["IsActive"] != DBNull.Value ? Convert.ToBoolean(reader["IsActive"]) : null
                         };
                         users.Add(user);
                     }
@@ -81,8 +82,8 @@ namespace GestionVoitureFrontOffice.Services
                                 Email = reader["Email"] != DBNull.Value ? reader["Email"].ToString() : null,
                                 RoleId = reader["RoleId"] != DBNull.Value ? Convert.ToInt32(reader["RoleId"]) : 0,
                                 IsActive = reader["IsActive"] != DBNull.Value ? Convert.ToBoolean(reader["IsActive"]) : false,
-                                CreatedAt = reader["CreatedAt"] != DBNull.Value ? Convert.ToDateTime(reader["CreatedAt"]) : (DateTime?)null,
-                                UpdatedAt = reader["UpdatedAt"] != DBNull.Value ? Convert.ToDateTime(reader["UpdatedAt"]) : (DateTime?)null,
+                                CreatedAt = reader["CreatedAt"] != DBNull.Value ? Convert.ToDateTime(reader["CreatedAt"]) : null,
+                                UpdatedAt = reader["UpdatedAt"] != DBNull.Value ? Convert.ToDateTime(reader["UpdatedAt"]) : null,
                                 RoleUser = new RoleUser
                                 {
                                     Id = Convert.ToInt32(reader["RoleId"]),
@@ -211,8 +212,8 @@ namespace GestionVoitureFrontOffice.Services
                                 Email = reader["Email"] != DBNull.Value ? reader["Email"].ToString() : null,
                                 RoleId = reader["RoleId"] != DBNull.Value ? Convert.ToInt32(reader["RoleId"]) : 0,
                                 IsActive = reader["IsActive"] != DBNull.Value ? Convert.ToBoolean(reader["IsActive"]) : false,
-                                CreatedAt = reader["CreatedAt"] != DBNull.Value ? Convert.ToDateTime(reader["CreatedAt"]) : (DateTime?)null,
-                                UpdatedAt = reader["UpdatedAt"] != DBNull.Value ? Convert.ToDateTime(reader["UpdatedAt"]) : (DateTime?)null,
+                                CreatedAt = reader["CreatedAt"] != DBNull.Value ? Convert.ToDateTime(reader["CreatedAt"]) : null,
+                                UpdatedAt = reader["UpdatedAt"] != DBNull.Value ? Convert.ToDateTime(reader["UpdatedAt"]) : null,
                                 RoleUser = new RoleUser
                                 {
                                     Id = Convert.ToInt32(reader["RoleId"]),

@@ -47,9 +47,18 @@ namespace GestionVoitureFrontOffice.Configurations
                     var emailClaim = claimsPrincipal.FindFirst(JwtRegisteredClaimNames.Sub)?.Value ??
                              claimsPrincipal.FindFirst(ClaimTypes.NameIdentifier)?.Value;
                     var roleClaim = claimsPrincipal.FindFirst(ClaimTypes.Role)?.Value;
+                    var idUserClaim = claimsPrincipal.FindFirst("idUser")?.Value;
 
                     context.Items["UserEmail"] = emailClaim;
                     context.Items["UserRole"] = roleClaim;
+                    if (int.TryParse(idUserClaim, out int idUser))
+                    {
+                        context.Items["idUser"] = idUser;
+                    }
+                    else
+                    {
+                        Console.WriteLine("Erreur : idUserClaim n'a pas pu être converti en entier.");
+                    }
                 }
                 catch (Exception ex)
                 {

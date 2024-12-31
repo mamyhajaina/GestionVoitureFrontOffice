@@ -1,0 +1,59 @@
+﻿@using GestionVoitureFrontOffice.Models
+@model IEnumerable<Offer>
+@{
+    ViewData["Title"] = "Gestion Offre";
+}
+<div class="page-title dark-background" data-aos="fade" style="background-image: url(assets/img/page-title-bg.jpg);">
+    <div class="container position-relative">
+        <h1>Liste des Demandes d'Offres</h1>
+        <p>Découvrez ici toutes les demandes d'offres que vous avez soumises ou que vous souhaitez consulter. Pour plus d'informations ou pour toute question, n'hésitez pas à nous contacter.</p>
+        <nav class="breadcrumbs">
+            <ol>
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="offres.html">Offres</a></li>
+                <li class="current">Liste des Demandes</li>
+            </ol>
+        </nav>
+    </div>
+</div><!-- End Page Title -->
+
+<section class="section">
+    <div class="row justify-content-center">
+        <div class="col-lg-10">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Depart</th>
+                        <th scope="col">Arriver</th>
+                        <th scope="col">Model voiture</th>
+                        <th scope="col">Capacite</th>
+                        <th scope="col">Montant du facture</th>
+                        <th scope="col">Date</th>
+                        <th scope="col">Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        @foreach (var offer in Model)
+                        {
+                        <tr class="table-@(
+                                offer.status == 0 ? "danger" :
+                                offer.status == 1 ? "primary" :
+                                offer.status == 2 ? "warning" :
+                                offer.status == 3 ? "success" :
+                                "secondary")">
+                            <td>@offer.TragerDeparture?.Destination</td>
+                            <td>@offer.TragerArriving?.Destination</td>
+                            <td>@offer.Vehicle?.Model</td>
+                            <td>@offer.Capacity</td>
+                            <td>@offer.TotalAmount</td>
+                            <td>@offer.DateMission.ToString("dd/MM/yyyy")</td>
+                            <td>@offer.statusName</td>
+                        </tr>
+                        }
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>

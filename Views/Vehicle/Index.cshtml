@@ -1,10 +1,12 @@
-﻿@*
+﻿@using GestionVoitureFrontOffice.Models
+@*
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
 @{
     ViewData["Title"] = "Nos Voiture";
+    var nostragers = ViewData["Nostragers"] as IEnumerable<NosTrager>;
 }
-@model IEnumerable<GestionVoitureFrontOffice.Models.Vehicle>
+@model IEnumerable<Vehicle>
 
 <!-- Page Title -->
 <div class="page-title dark-background" data-aos="fade" style="background-image: url(~/assets/img/page-title-bg.jpg);">
@@ -60,7 +62,19 @@
         <h2>Nos Voitures</h2>
         <p>Découvrez notre large sélection de voitures disponibles à la location. Des modèles adaptés à tous vos besoins de transport.</p>
     </div><!-- End Section Title -->
+    <div class="row gy-4 mb-5">
+        <div class="col-12 d-flex justify-content-center">
+            <form class="row row-cols-lg-auto g-3 align-items-center" method="get">
+                <div class="col-12">
+                    <input type="text" class="form-control" name="textSearched" value="@ViewData["TextSearched"]" placeholder="Recherche...">
+                </div>
 
+                <div class="col-12">
+                    <button type="submit" class="btn btn-primary">Rechercher</button>
+                </div>
+            </form>
+        </div>
+    </div>
     <div class="container">
         <div class="row gy-4">
             @foreach (var vehicle in Model){
@@ -77,6 +91,28 @@
                     </div>
                 </div>
             }
+        </div>
+        <div class="row gy-4 mt-3">
+            <div class="col-12 d-flex justify-content-center">
+                <nav aria-label="...">
+                    <ul class="pagination pagination-lg">
+                        @{
+                            int totalCount = (int)ViewData["TotalCount"];
+                            int pageSize = (int)ViewData["PageSize"];
+                            int currentPage = (int)ViewData["CurrentPage"];
+                            int totalPages = (int)Math.Ceiling((double)totalCount / pageSize);
+                        }
+                        @for (int i = 1; i <= totalPages; i++)
+                        {
+                        <li class="page-item @(i == currentPage ? "active" : "")">
+                            <a class="page-link" href="@Url.Action("Index", new { textSearched = ViewData["TextSearched"], nostragerId = ViewData["SelectedNostrager"], page = i })">
+                                @i
+                            </a>
+                        </li>
+                        }
+                    </ul>
+                </nav>
+            </div>
         </div>
     </div>
 </section><!-- /Car Catalogue Section -->

@@ -1,6 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations;
-
-namespace GestionVoitureFrontOffice.Models
+﻿namespace GestionVoitureFrontOffice.Models
 {
     public class TypeVehicle
     {

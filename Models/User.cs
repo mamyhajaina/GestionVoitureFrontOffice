@@ -1,9 +1,10 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
+using Microsoft.AspNetCore.Identity;
 
 namespace GestionVoitureFrontOffice.Models
 {
-    public class User
+    public class User: IdentityUser
     {
         public int Id { get; set; }
         public string FirstName { get; set; }

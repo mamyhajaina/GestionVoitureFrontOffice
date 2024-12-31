@@ -19,23 +19,14 @@
         <nav id="navmenu" class="navmenu">
             <ul>
                 <li><a asp-controller="Home" class="active">Accueil</a></li>
-                <li><a asp-controller="Apropos">À propos</a></li>
-                <li><a asp-controller="NosService">Nos Services</a></li>
-                <li><a asp-controller="Vehicle">Nos Véhicules</a></li>
-                <li><a asp-controller="Tarifs">Tarifs</a></li>
+                <li><a asp-controller="Apropos" asp-action="Index">À propos</a></li>
+                <li><a asp-controller="NosService" asp-action="Index">Nos Services</a></li>
+                <li><a asp-controller="Vehicle" asp-action="Index">Nos Véhicules</a></li>
+                <li><a asp-controller="Tarifs" asp-action="Index">Tarifs</a></li>
                 <li class="dropdown">
                     <a href="#"><span>Options</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
                     <ul>
-                        <li><a asp-controller="Offre">Obtenir un Devis</a></li>
-                        <li class="dropdown">
-                            <a href="#"><span>Types de Véhicules</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
-                            <ul>
-                                <li><a href="#">Camions</a></li>
-                                <li><a href="#">Fourgonnettes</a></li>
-                                <li><a href="#">Véhicules Utilitaires</a></li>
-                                <li><a href="#">Véhicules de Luxe</a></li>
-                            </ul>
-                        </li>
+                        <li><a asp-controller="Offre" asp-action="Index" asp-route-IdVehicle="null">Obtenir un Devis</a></li>
                     </ul>
                 </li>
             </ul>
@@ -43,7 +34,9 @@
         </nav>
 
         <!-- Bouton d'appel à l'action -->
-        <a class="btn-getstarted" asp-controller="Offre">Obtenir un Devis</a>
+        <a class="btn-getstarted" asp-controller="Offre" asp-action="Index" asp-route-IdVehicle="null">Obtenir un Devis</a>
+
+        <a class="btn-getstarted" asp-controller="Offre" asp-action="Index" asp-route-IdVehicle="null">Se Connecter</a>
 
     </div>
 </header>

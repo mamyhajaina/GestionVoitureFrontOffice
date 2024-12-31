@@ -19,20 +19,21 @@ namespace GestionVoitureFrontOffice.Services
             _audience = configuration["Jwt:Audience"];
         }
 
-        public string GenerateToken(string email, string role)
+        public string GenerateToken(int idUser, string email, string role)
         {
             try
             {
                 var tokenHandler = new JwtSecurityTokenHandler();
                 var key = Encoding.UTF8.GetBytes(_key);
 
-                Console.WriteLine("GenerateToken email: " + email);
+                Console.WriteLine("---GenerateToken role: " + role);
 
                 var claims = new List<Claim>
                 {
                     new Claim(JwtRegisteredClaimNames.Sub, email), // Ajout de l'email
                     new Claim(ClaimTypes.Role, role),             // Ajout du rôle
-                    new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
+                    new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
+                    new Claim("idUser", idUser.ToString())
                 };
 
                 var tokenDescriptor = new SecurityTokenDescriptor

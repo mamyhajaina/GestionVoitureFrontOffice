@@ -1,9 +1,10 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@using GestionVoitureFrontOffice.Models
+@model Offer;
 
 @{
     ViewData["Title"] = "Demande d'offre";
+    var nostragerDepart = ViewData["nostragerDepart"] as IEnumerable<NosTrager>;
+    var nostragerArriver = ViewData["nostragerArriver"] as IEnumerable<NosTrager>;
 }
 
 <div class="page-title dark-background" data-aos="fade" style="background-image: url(assets/img/page-title-bg.jpg);">
@@ -18,14 +19,11 @@
         </nav>
     </div>
 </div><!-- End Page Title -->
-<!-- Contact Section -->
-<section id="contact" class="contact section">
+
+
+<section id="demande-offre" class="contact section">
 
     <div class="container" data-aos="fade-up" data-aos-delay="100">
-
-        <div class="mb-4" data-aos="fade-up" data-aos-delay="200">
-            <iframe style="border:0; width: 100%; height: 270px;" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d48389.78314118045!2d-74.006138!3d40.710059!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25a22a3bda30d%3A0xb89d1fe6bc499443!2sDowntown%20Conference%20Center!5e0!3m2!1sen!2sus!4v1676961268712!5m2!1sen!2sus" frameborder="0" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-        </div><!-- End Google Maps -->
 
         <div class="row gy-4">
 
@@ -59,37 +57,109 @@
             <div class="col-lg-8">
                 <form asp-controller="Offre" asp-action="DemandeOffre" method="POST" class="php-email-form" data-aos="fade-up" data-aos-delay="200">
                     <div class="row gy-4">
+                        @if ((int)ViewData["IdVehicle"] != 0)
+                        {
+                            <input type="hidden" name="IdVehicle" value="@ViewData["IdVehicle"]">
+                        }
+                        else
+                        {
+                            <input type="hidden" name="IdVehicle" value="">
+                        }
 
                         <div class="col-md-6">
-                            <input type="text" name="name" class="form-control" placeholder="Votre Nom" required="">
+                            <input type="text" asp-for="NameSociete" class="form-control" placeholder="Votre Nom ou nom de la société*" required="">
+                            <span asp-validation-for="NameSociete" class="text-danger"></span>
                         </div>
 
-                        <div class="col-md-6 ">
-                            <input type="email" class="form-control" name="email" placeholder="Votre Email" required="">
+                        <div class="col-md-6">
+                            <input type="email" class="form-control" name="Email" placeholder="Votre Email*" required="">
                         </div>
+
+                        <div class="col-md-6">
+                            <div class="input-group mb-3">
+                                <label class="input-group-text" for="IdTragerDeparture">Lieu de départ*</label>
+                                <select class="form-select" id="IdTragerArriving" asp-for="IdTragerDeparture">
+                                    <option selected value="null">Choose...</option>
+                                    @if (nostragerDepart != null)
+                                    {
+                                        foreach (var nostrager in nostragerDepart)
+                                        {
+                                            <option value="@nostrager.Id">@nostrager.Destination</option>
+                                        }
+                                    }
+                                </select>
+                                <span asp-validation-for="IdTragerDeparture" class="text-danger"></span>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="input-group mb-3">
+                                <label class="input-group-text" for="IdTragerArriving">Lieu de destination*</label>
+                                <select class="form-select" id="IdTragerArriving" asp-for="IdTragerArriving">
+                                    <option selected value="null">Choose...</option>
+                                    @if (nostragerArriver != null)
+                                    {
+                                        foreach (var nostrager in nostragerArriver)
+                                        {
+                                            <option value="@nostrager.Id">@nostrager.Destination</option>
+                                        }
+                                    }
+                                </select>
+                                <span asp-validation-for="IdTragerArriving" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="input-group mb-3">
+                                <span class="input-group-text" id="basic-addon1">Date du trajet*</span>
+                                <input type="date" class="form-control" asp-for="DateMission">
+                            </div>
+                            <span asp-validation-for="DateMission" class="text-danger"></span>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="input-group mb-3">
+                                <span class="input-group-text" id="basic-addon1">Quantité de marchandise</span>
+                                <input type="number" class="form-control" placeholder="en tonne" asp-for="Capacity">
+                            </div>
+                            <span asp-validation-for="Capacity" class="text-danger"></span>
+                        </div>
+
+                        @* <div class="col-md-6"> *@
+                        @*     <div class="input-group mb-3"> *@
+                        @*         <span class="input-group-text" id="basic-addon1">Montant de location</span> *@
+                        @*         <input type="number" class="form-control" placeholder="en Ar" asp-for="TotalAmount" disabled> *@
+                        @*     </div> *@
+                        @*     <span asp-validation-for="TotalAmount" class="text-danger"></span> *@
+                        @* </div> *@
 
                         <div class="col-md-12">
-                            <input type="text" class="form-control" name="subject" placeholder="Sujet" required="">
-                        </div>
-
-                        <div class="col-md-12">
-                            <textarea class="form-control" name="message" rows="6" placeholder="Message" required=""></textarea>
+                            <textarea class="form-control" asp-for="Description" rows="6" placeholder="Détails supplémentaires (ex. type de véhicule, besoins spécifiques)" required=""></textarea>
+                            <span asp-validation-for="Description" class="text-danger"></span>
                         </div>
 
                         <div class="col-md-12 text-center">
                             <div class="loading">Chargement</div>
                             <div class="error-message"></div>
-                            <div class="sent-message">Votre message a été envoyé. Merci !</div>
+                            <div class="sent-message">Votre demande d'offre a été envoyée. Merci !</div>
 
-                            <button type="submit">Envoyer le message</button>
+                            <button type="submit">Demander un devis</button>
                         </div>
 
                     </div>
                 </form>
-            </div><!-- End Contact Form -->
+                @section Scripts {
+                    @{
+                        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+                    }
+                }
+
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div asp-validation-summary="All" class="text-danger"></div>
+
+            </div><!-- End Formulaire Demande Offre -->
 
         </div>
 
     </div>
 
-</section><!-- /Contact Section -->
+</section><!-- /Demande Offre Section -->

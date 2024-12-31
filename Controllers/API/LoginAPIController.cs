@@ -1,12 +1,9 @@
-﻿using GestionVoitureFrontOffice.Models;
-using GestionVoitureFrontOffice.Services;
-using Microsoft.AspNetCore.Mvc;
-using System.ComponentModel.DataAnnotations;
+﻿using Microsoft.AspNetCore.Mvc;
 
-namespace GestionVoitureFrontOffice.Controllers
+namespace GestionVoitureFrontOffice.Controllers.API
 {
     [ApiController]
-    [Route("admin/api/[controller]")]
+    [Route("api/[controller]")]
     public class LoginAPIController : Controller
     {
         [HttpGet]

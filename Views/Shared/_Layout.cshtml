@@ -6,6 +6,11 @@
     <title>@ViewData["Title"] - GestionVoitureFrontOffice</title>
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/GestionVoitureFrontOffice.styles.css" asp-append-version="true" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.3/dist/jquery.validate.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation-unobtrusive@3.2.12/jquery.validate.unobtrusive.min.js"></script>
+
 
     <!-- Favicons -->
     <link href="~/assets/img/favicon.png" rel="icon">
@@ -23,12 +28,9 @@
     <link href="~/assets/css/main.css" rel="stylesheet">
 </head>
 <body>
-    @Html.Partial("_Header")
+    @Html.Partial("_Header.cshtml")
     @RenderBody()
-    @Html.Partial("_Footer")
-    <script src="https://cdn.jsdelivr.net/npm/jquery"></script>
-    <script src="https://cdn.jsdelivr.net/npm/jquery-validation"></script>
-    <script src="https://cdn.jsdelivr.net/npm/jquery-validation-unobtrusive"></script>
+    @Html.Partial("_Footer.cshtml")
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
 

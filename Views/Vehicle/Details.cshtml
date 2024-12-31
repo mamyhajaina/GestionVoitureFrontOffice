@@ -1,8 +1,8 @@
-﻿@model GestionVoitureFrontOffice.Models.Vehicle
+﻿@using GestionVoitureFrontOffice.Models
+@model Vehicle
 
 @{
     ViewData["Title"] = "Détails du Véhicule";
-    var nostragers = ViewData["Nostragers"] as IEnumerable<NosTrager>;
 }
 
 <div class="page-title dark-background" data-aos="fade" style="background-image: url(assets/img/page-title-bg.jpg);">
@@ -80,128 +80,11 @@
             </div>
 
         </div>
-
-    </div>
-
-</section>
-
-<section id="demande-offre" class="contact section">
-
-    <div class="container" data-aos="fade-up" data-aos-delay="100">
-
         <div class="row gy-4">
-
-            <div class="col-lg-4">
-                <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="300">
-                    <i class="bi bi-geo-alt flex-shrink-0"></i>
-                    <div>
-                        <h3>Adresse</h3>
-                        <p>123 Rue de l'Innovation, Antananarivo, Madagascar</p>
-                    </div>
-                </div><!-- End Info Item -->
-
-                <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="400">
-                    <i class="bi bi-telephone flex-shrink-0"></i>
-                    <div>
-                        <h3>Appelez-nous</h3>
-                        <p>+123 456 7890</p>
-                    </div>
-                </div><!-- End Info Item -->
-
-                <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="500">
-                    <i class="bi bi-envelope flex-shrink-0"></i>
-                    <div>
-                        <h3>Email</h3>
-                        <p>contact@hayramatechnology.com</p>
-                    </div>
-                </div><!-- End Info Item -->
-
+            <div class="d-grid gap-2 col-6 mx-auto">
+                <a class="btn btn-primary" type="button" asp-controller="Offre" asp-action="Index" asp-route-IdVehicle="@Model.Id" meth>Demander un devis</a>
             </div>
-
-            <div class="col-lg-8">
-                <form asp-controller="Offre" asp-action="DemandeOffre" method="POST" class="php-email-form" data-aos="fade-up" data-aos-delay="200">
-                    <input type="hidden" asp-for="IdVehicle" value="@Model.Id">
-                    <div class="row gy-4">
-                        <div class="col-md-6">
-                            <input type="text" asp-for="Name" class="form-control" placeholder="Votre Nom ou nom de la société*" required="">
-                        </div>
-
-                        <div class="col-md-6">
-                            <input type="email" class="form-control" asp-for="Email" placeholder="Votre Email*" required="">
-                        </div>
-
-                        <div class="col-md-6">
-                            <div class="input-group mb-3">
-                                <label class="input-group-text" for="inputGroupSelect01">Lieu de départ*</label>
-                                <select class="form-select" id="inputGroupSelect01" name="placeDeparatureId">
-                                    <option selected>Choose...</option>
-                                    @if (nostragers != null)
-                                    {
-                                        foreach (var nostrager in nostragers)
-                                        {
-                                            <option value="@nostrager.Id">@nostrager.Destination</option>
-                                        }
-                                    }
-                                </select>
-                            </div>
-                        </div>
-
-                        <div class="col-md-6">
-                            <div class="input-group mb-3">
-                                <label class="input-group-text" for="inputGroupSelect01">Lieu de destination*</label>
-                                <select class="form-select" id="inputGroupSelect01" name="placeArrivingId">
-                                    <option selected>Choose...</option>
-                                    @if (nostragers != null)
-                                    {
-                                        foreach (var nostrager in nostragers)
-                                        {
-                                            <option value="@nostrager.Id">@nostrager.Destination</option>
-                                        }
-                                    }
-                                </select>
-                            </div>
-                        </div>
-
-                        <div class="col-md-6">
-                            <div class="input-group mb-3">
-                                <span class="input-group-text" id="basic-addon1">Date du trajet*</span>
-                                <input type="date" class="form-control" name="dateMission">
-                            </div>
-                        </div>
-
-                        <div class="col-md-6">
-                            <div class="input-group mb-3">
-                                <span class="input-group-text" id="basic-addon1">Quantité de marchandise</span>
-                                <input type="number" class="form-control" placeholder="en tonne" name="capacity">
-                            </div>
-                         </div>
-
-                        <div class="col-md-6">
-                            <div class="input-group mb-3">
-                                <span class="input-group-text" id="basic-addon1">Montant de location</span>
-                                <input type="number" class="form-control" placeholder="en Ar" name="totalAmount">
-                            </div>
-                        </div>
-
-                        <div class="col-md-12">
-                            <textarea class="form-control" name="descriptions" rows="6" placeholder="Détails supplémentaires (ex. type de véhicule, besoins spécifiques)" required=""></textarea>
-                        </div>
-
-                        <div class="col-md-12 text-center">
-                            <div class="loading">Chargement</div>
-                            <div class="error-message"></div>
-                            <div class="sent-message">Votre demande d'offre a été envoyée. Merci !</div>
-
-                            <button type="submit">Demander un devis</button>
-                        </div>
-
-                    </div>
-                </form>
-                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            </div><!-- End Formulaire Demande Offre -->
-
         </div>
 
     </div>
-
-</section><!-- /Demande Offre Section -->
+</section>

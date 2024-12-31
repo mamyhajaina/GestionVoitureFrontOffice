@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("GestionVoitureFrontOffice")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3d0e4dd0979b4bc7a7129249d9d6d3d5b59e0231")]
 [assembly: System.Reflection.AssemblyProductAttribute("GestionVoitureFrontOffice")]
 [assembly: System.Reflection.AssemblyTitleAttribute("GestionVoitureFrontOffice")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

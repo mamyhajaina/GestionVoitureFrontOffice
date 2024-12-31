@@ -11,12 +11,14 @@ namespace GestionVoitureFrontOffice.Controllers
         private readonly UserService _userService;
         private readonly JwtTokenService _jwtTokenService;
 
-        public LoginController(UserService userService, JwtTokenService jwtTokenService) {
+        public LoginController(UserService userService, JwtTokenService jwtTokenService)
+        {
             _userService = userService;
             _jwtTokenService = jwtTokenService;
         }
         public async Task<IActionResult> Index()
         {
+            Console.WriteLine("Index");
             return View();
         }
 
@@ -25,11 +27,12 @@ namespace GestionVoitureFrontOffice.Controllers
         {
             try
             {
+                Console.WriteLine("Login");
                 if (string.IsNullOrEmpty(email) || string.IsNullOrEmpty(password))
                 {
                     ViewData["ErrorMessage"] = "L'email et le mot de passe sont requis.";
                     Console.WriteLine("L'email et le mot de passe sont requis.");
-                    return RedirectToAction("");
+                    return RedirectToAction("Index", "Login");
                 }
 
                 var emailIsValid = new EmailAddressAttribute().IsValid(email);
@@ -37,7 +40,7 @@ namespace GestionVoitureFrontOffice.Controllers
                 {
                     ViewData["ErrorMessage"] = "L'email fourni n'est pas valide.";
                     Console.WriteLine("L'email fourni n'est pas valide.");
-                    return RedirectToAction("");
+                    return RedirectToAction("Index", "Login");
                 }
 
                 var user = await _userService.LoginAsync(email, password);
@@ -45,22 +48,25 @@ namespace GestionVoitureFrontOffice.Controllers
                 if (user != null)
                 {
                     Console.WriteLine("user.RoleUser.Nam == " + user.RoleUser.Name);
-                    if (user.RoleUser.Name == "Client") {
-                        var token = _jwtTokenService.GenerateToken(email, user.RoleUser.Name);
+                    if (user.RoleUser.Name == "Client")
+                    {
+                        var token = _jwtTokenService.GenerateToken(user.Id, email, user.RoleUser.Name);
                         HttpContext.Session.SetString("JwtToken", token);
                         Console.WriteLine("token == " + token);
                         return RedirectToAction("Index", "Vehicle");
                     }
-                    else {
+                    else
+                    {
                         Console.WriteLine("No Token");
-                        return RedirectToAction("");
+                        return RedirectToAction("Index", "Login");
+
                     }
                 }
                 else
                 {
                     Console.WriteLine("Email ou mot de passe incorrect");
                     ViewData["ErrorMessage"] = "Email ou mot de passe incorrect";
-                    return RedirectToAction("");
+                    return RedirectToAction("Index", "Login");
                 }
             }
             catch (Exception ex)
@@ -74,13 +80,14 @@ namespace GestionVoitureFrontOffice.Controllers
         [HttpGet]
         public async Task<IActionResult> Register()
         {
+            Console.WriteLine("Register");
             return View();
         }
 
         [HttpPost]
         public async Task<IActionResult> Register([Bind("FirstName,LastName,Email,PasswordHash")] User user)
         {
-            Console.WriteLine("user"+ user);
+            Console.WriteLine("user" + user);
             user.RoleId = 2;
             if (ModelState.IsValid)
             {
@@ -92,18 +99,20 @@ namespace GestionVoitureFrontOffice.Controllers
                     if (result)
                     {
                         TempData["Message"] = "Inscription réussie.";
-                        return RedirectToAction("Index");
+                        return RedirectToAction("Index", "Login");
+
                     }
                     else
                     {
                         TempData["ErrorMessage"] = "Échec de l'inscription.";
-                        return RedirectToAction("Register");
+                        return RedirectToAction("Register", "Login");
+
                     }
                 }
                 else
                 {
                     TempData["ErrorMessage"] = "L'utilisateur existe déjà.";
-                    return RedirectToAction("Register");
+                    return RedirectToAction("Register", "Login");
                 }
             }
             else
@@ -112,7 +121,7 @@ namespace GestionVoitureFrontOffice.Controllers
                 //Console.WriteLine("Erreurs de validation : " + string.Join(", ", errors));
                 //TempData["ErrorMessage"] = "Données invalides. Veuillez vérifier les champs.";
                 //return Unauthorized(new { message = "Données invalides. Veuillez vérifier les champs.", errors });
-                
+
                 TempData["ErrorMessage"] = "Données invalides. Veuillez vérifier les champs.";
                 //return RedirectToAction("Register");
                 return Unauthorized(new { message = "Données invalides. Veuillez vérifier les champs.", user });

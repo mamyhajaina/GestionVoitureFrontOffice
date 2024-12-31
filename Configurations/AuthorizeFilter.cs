@@ -9,19 +9,31 @@ namespace GestionVoitureFrontOffice.Configurations
         {
             Console.WriteLine("OnActionExecuting");
             var userEmail = context.HttpContext.Items["UserEmail"]?.ToString();
+            var idUser = context.HttpContext.Items["idUser"]?.ToString();
             var userRole = context.HttpContext.Items["UserRole"]?.ToString();
-            var actionName = context.ActionDescriptor.RouteValues["action"];
+            Console.WriteLine("idUser: " + idUser);
             Console.WriteLine("userEmail: " + userEmail);
             Console.WriteLine("userRole: " + userRole);
+            var controllerName = context.ActionDescriptor.RouteValues["controller"];
+            var actionName = context.ActionDescriptor.RouteValues["action"];
             Console.WriteLine("actionName: " + actionName);
-            if (actionName == "Index")
-            {
-                Console.WriteLine("actionName Index");
-                return;
-            }
+            Console.WriteLine("Controller: " + controllerName);
+            //if (actionName == "Index")
+            //{
+            //    Console.WriteLine("actionName Index");
+            //    return;
+            //}
             if (string.IsNullOrEmpty(userEmail))
             {
-                Console.WriteLine("RedirectToActionResult Login");
+                //if (userRole == "Client")
+                //{
+                //    context.Result = new RedirectToActionResult("Index", "Index", "AdminClient");
+                //}
+                //else if (userRole == "Admin"){
+                //    context.Result = new RedirectToActionResult("Index", "Index", "Admin");
+                //}
+                //else { 
+                //}
                 if (string.Equals(context.HttpContext.Request.Method, "POST", StringComparison.OrdinalIgnoreCase)) {
 
                     Console.WriteLine("Post");
