@@ -1,0 +1,25 @@
+User:
+Id	FirstName	LastName	Email	PasswordHash	roleId	CreatedAt	UpdatedAt	IsActive
+7	Jean	Dupont	admin@example.com	HASHED_PASSWORD	1	NULL	NULL	1
+8	Marie	Martin	client@example.com	HASHED_PASSWORD	2	NULL	NULL	1
+9	Pierre	Durand	chauffeur@example.com	HASHED_PASSWORD	3	NULL	NULL	1
+
+RoleUser:
+Id	Name
+1	Admin
+2	Client
+3	Chauffeur
+4	Aide Chauffeur
+5	Mécanicien
+
+Vehicle:
+Id	Number	Pseudo	typeVehicleId	Brand	Model	Capacity	Descriptions	TableKilometer	PhotoUrl
+19	SEM123	JohnDoe	1	Mercedes-Benz	Actros	2.00	Prête pour le transport longue distance, ce camion semi-remorque est conçu pour une capacité maximale et une robustesse à toute épreuve.	150000.00	actros.jpg
+20	PLT456	JaneDoe	2	Mercedes-Benz	Arocs	3.00	Un camion plateau puissant, parfait pour le transport de matériaux lourds et encombrants, adapté aux chantiers exigeants.	100000.00	arocs.jpg
+21	PCN789	MikeSmith	3	Mercedes-Benz	Antos	4.00	Idéal pour le transport de conteneurs, ce camion porte-conteneur allie performance et flexibilité pour les longues distances.	120000.00	antos.jpg
+22	GRU012	PaulJ	4	Mercedes-Benz	Econic	2.00	Conçu pour la manutention de charges lourdes, ce camion grue est indispensable pour les travaux de levage et de transport lourd.	80000.00	econic.jpg
+23	BEN345	AliceB	5	Mercedes-Benz	Atego	3.00	Camion benne robuste, parfait pour le transport de matériaux de construction et de débris sur tous types de chantiers.	90000.00	atego.jpg
+24	FRG678	RuthC	6	Mercedes-Benz	Sprinter	2.00	Ce camion frigorifique est conçu pour transporter des marchandises sensibles à la température, idéal pour les livraisons de produits alimentaires.	75000.00	sprinter.jpg
+25	CTN901	DavidF	7	Mercedes-Benz	Benz Actros	4.00	Le camion citerne parfait pour le transport de liquides, fiable et sécurisé pour les livraisons de carburants et produits chimiques.	95000.00	benz_actros.jpg
+26	TOU234	MikeT	8	Mercedes-Benz	Mixer	3.00	Camion toupie prêt pour le chantier, idéal pour le transport et la livraison de béton frais, une solution efficace pour les grands travaux.	60000.00	mixer.jpg
+27	FGR567	EveW	9	Mercedes-Benz	Vario	2.00	Camion fourgon polyvalent, conçu pour le transport sécurisé de marchandises variées, idéal pour la logistique urbaine.	50000.00	vario.jpg
