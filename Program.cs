@@ -57,6 +57,7 @@ builder.Services.AddScoped<JwtTokenService>();
 builder.Services.AddScoped<AuthorizeFilter>();
 builder.Services.AddHttpClient();
 builder.Services.AddScoped<ApiService>();
+builder.Services.AddScoped<EmailService>();
 builder.Services.AddSwaggerGen(options =>
 {
     options.SwaggerDoc("v1", new Microsoft.OpenApi.Models.OpenApiInfo

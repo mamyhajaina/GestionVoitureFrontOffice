@@ -53,13 +53,18 @@ namespace GestionVoitureFrontOffice.Controllers
                         var token = _jwtTokenService.GenerateToken(user.Id, email, user.RoleUser.Name);
                         HttpContext.Session.SetString("JwtToken", token);
                         Console.WriteLine("token == " + token);
-                        return RedirectToAction("Index", "Vehicle");
+                        return RedirectToAction("Index", "AdminClient");
+                    }
+                    else if(user.RoleUser.Name == "Admin")
+                    {
+                        Console.WriteLine("Admin");
+                        return RedirectToAction("Index", "Admin");
+
                     }
                     else
                     {
-                        Console.WriteLine("No Token");
+                        Console.WriteLine("Else");
                         return RedirectToAction("Index", "Login");
-
                     }
                 }
                 else
@@ -71,9 +76,14 @@ namespace GestionVoitureFrontOffice.Controllers
             }
             catch (Exception ex)
             {
-                Console.WriteLine("Une erreur s'est produite lors de la tentative de connexion. Veuillez réessayer plus tard.", ex);
+                Console.WriteLine("Une erreur s'est produite lors de la tentative de connexion : " + ex.Message);
                 ViewData["ErrorMessage"] = "Une erreur s'est produite lors de la tentative de connexion. Veuillez réessayer plus tard.";
-                return Unauthorized(new { message = "Données invalides. Veuillez vérifier les champs.", ex });
+
+                return StatusCode(500, new
+                {
+                    message = "Une erreur interne est survenue. Veuillez réessayer plus tard.",
+                    details = ex.Message // Inclure d'autres détails si nécessaire
+                });
             }
         }
 

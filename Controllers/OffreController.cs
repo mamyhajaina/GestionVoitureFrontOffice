@@ -11,12 +11,14 @@ namespace GestionVoitureFrontOffice.Controllers
         public readonly OffreService _offreService;
         private readonly TragerService _nosTragerService;
         private readonly IHttpContextAccessor _httpContextAccessor;
+        private readonly EmailService _emailService;
 
-        public OffreController(OffreService offreService, TragerService nosTragerService, IHttpContextAccessor httpContextAccessor)
+        public OffreController(OffreService offreService, TragerService nosTragerService, IHttpContextAccessor httpContextAccessor, EmailService emailService)
         {
             _offreService = offreService;
             _nosTragerService = nosTragerService;
             _httpContextAccessor = httpContextAccessor;
+            _emailService = emailService;
         }
 
         public async Task<IActionResult> Index(int IdVehicle)
@@ -82,16 +84,10 @@ namespace GestionVoitureFrontOffice.Controllers
             Console.WriteLine("-------------offerData.IdVehicle " + offerData.IdVehicle);
             offerData.IdClient = _httpContextAccessor.HttpContext?.GetIdUser();
             var responseInsert = await _offreService.AddOffre(offerData);
+            await _emailService.EnvoyerConfirmationDemande(offerData.Email, offerData.NameSociete, offerData.Description);
             Console.WriteLine("responseInsert: " + responseInsert);
-            return RedirectToAction("ListeOffre");
+            return RedirectToAction("Index","AdminClient");
         }
 
-        public async Task<IActionResult> ListeOffre()
-        {
-            var IdClient = _httpContextAccessor.HttpContext?.GetIdUser();
-            List<Offer> offers = await _offreService.getOffreByIdClientAsync(IdClient);
-            Console.WriteLine("Count liste array: " + offers.Count);
-            return View(offers);
-        }
     }
 }
