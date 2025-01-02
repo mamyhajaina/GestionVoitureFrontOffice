@@ -1,25 +1,36 @@
 using GestionVoitureFrontOffice.Configurations;
-using GestionVoitureFrontOffice.Data;
 using GestionVoitureFrontOffice.Models;
 using GestionVoitureFrontOffice.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
+using System.Net.Security;
+using System.Net;
+using Microsoft.AspNetCore.Identity;
+using GestionVoitureFrontOffice.Services.IServices;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddIdentity<User, IdentityRole>(Options =>
-{
-    Options.Password.RequireNonAlphanumeric = false;
-    Options.Password.RequiredLength = 8;
-    Options.Password.RequireUppercase = false;
-    Options.Password.RequireLowercase = false;
-})
-    .AddEntityFrameworkStores<AppDbContext>()
-    .AddDefaultTokenProviders();
+ServicePointManager.ServerCertificateValidationCallback =
+    (sender, certificate, chain, sslPolicyErrors) =>
+    {
+        Console.WriteLine($"SSL Policy Errors: {sslPolicyErrors}");
+        if (chain != null)
+        {
+            foreach (var status in chain.ChainStatus)
+            {
+                Console.WriteLine($"Chain Status: {status.StatusInformation}");
+            }
+        }
+        return true; // Toujours retourner true pour ignorer les erreurs
+    };
+
+
+builder.Services.AddDbContext<ApplicationDBContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+
 builder.Services.AddHttpContextAccessor();
 
 // Configuration du secret pour les JWT
@@ -58,6 +69,10 @@ builder.Services.AddScoped<AuthorizeFilter>();
 builder.Services.AddHttpClient();
 builder.Services.AddScoped<ApiService>();
 builder.Services.AddScoped<EmailService>();
+
+builder.Services.AddScoped<IMissionService, MissionService>();
+builder.Services.AddScoped<ITragerVehiculeService, TragerVehiculeService>();
+
 builder.Services.AddSwaggerGen(options =>
 {
     options.SwaggerDoc("v1", new Microsoft.OpenApi.Models.OpenApiInfo
@@ -74,9 +89,6 @@ builder.Services.AddSession(options =>
     options.Cookie.IsEssential = true; // Obligatoire pour la conformité RGPD
 });
 
-builder.Services.AddDbContext<AppDbContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
-
 
 var app = builder.Build();
 
@@ -87,7 +99,7 @@ app.UseMiddleware<JwtMiddleware>();
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Home/Error");
-    app.UseHsts();
+    //app.UseHsts();
 }
 else
 {
@@ -97,7 +109,7 @@ else
 }
 
 app.UseStatusCodePagesWithReExecute("/Home/NotFound");
-app.UseHttpsRedirection();
+//app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
@@ -113,7 +125,7 @@ app.MapControllerRoute(
 
 app.Use(async (context, next) =>
 {
-    Console.WriteLine($"Request URL: {context.Request.Path}");
+    //Console.WriteLine($"Request URL: {context.Request.Path}");
     await next();
 });
 app.MapRazorPages();

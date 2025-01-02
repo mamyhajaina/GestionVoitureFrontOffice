@@ -148,6 +148,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Migrations\" />
     <Folder Include="wwwroot\assets\img\vehicle\" />
   </ItemGroup>
 

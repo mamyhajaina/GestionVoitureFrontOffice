@@ -26,12 +26,10 @@
 </head>
 <body>
     @Html.Partial("~/Pages/Shared/_Header.cshtml")
-    <main id="main" class="main">
-        @RenderBody()
-    </main>
+    @RenderBody()
     @Html.Partial("~/Pages/Shared/_Footer.cshtml")
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
+    @* <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script> *@
+    @* <script src="~/js/site.js" asp-append-version="true"></script> *@
 
     <script src="~/AdminAssets/assets/vendor/apexcharts/apexcharts.min.js"></script>
     <script src="~/AdminAssets/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>

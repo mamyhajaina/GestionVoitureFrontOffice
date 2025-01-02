@@ -84,7 +84,10 @@ namespace GestionVoitureFrontOffice.Controllers
             Console.WriteLine("-------------offerData.IdVehicle " + offerData.IdVehicle);
             offerData.IdClient = _httpContextAccessor.HttpContext?.GetIdUser();
             var responseInsert = await _offreService.AddOffre(offerData);
-            await _emailService.EnvoyerConfirmationDemande(offerData.Email, offerData.NameSociete, offerData.Description);
+            if (responseInsert)
+            {
+                await _emailService.EnvoyerConfirmationDemande(offerData.Email, offerData.NameSociete, offerData.Description);
+            }
             Console.WriteLine("responseInsert: " + responseInsert);
             return RedirectToAction("Index","AdminClient");
         }

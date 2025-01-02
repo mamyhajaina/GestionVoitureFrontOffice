@@ -8,7 +8,7 @@ using System.Net.Sockets;
 namespace GestionVoitureFrontOffice.Pages.AdminClient
 {
     //[Authorize(Roles = "Client")]
-    [ServiceFilter(typeof(AuthorizeFilter))]
+    //[ServiceFilter(typeof(AuthorizeFilter))]
     public class IndexModel : PageModel
     {
         private readonly ApiService _apiService;
@@ -22,16 +22,29 @@ namespace GestionVoitureFrontOffice.Pages.AdminClient
             _httpContextAccessor = httpContextAccessor;
         }
 
-        public async Task OnGetAsync()
+        public async Task<IActionResult> OnGetAsync()
         {
             var IdClient = _httpContextAccessor.HttpContext?.GetIdUser();
 
             if (IdClient == null)
             {
-                throw new InvalidOperationException("L'utilisateur n'est pas authentifi� ou IdClient est nul.");
+                //throw new InvalidOperationException("L'utilisateur n'est pas authentifi� ou IdClient est nul.");
+                return RedirectToAction("Index","Login");
             }
-            var apiUrl = $"https://localhost:7263/api/OffreAPI?idClient={IdClient}";
+            var apiUrl = $"http://localhost:5078/api/OffreAPI/byClient?idClient={IdClient}";
             listeOffre = await _apiService.GetDataFromApiAsync<List<Offer>>(apiUrl);
+            return Page();
+        }
+
+        public async Task<IActionResult> OnPostValiderOfferAsync(int offerId)
+        {
+            Console.WriteLine("Valider l'offre avec l'Id : " + offerId);
+
+            // Logique pour valider l'offre (par exemple, mise à jour de son statut dans la base de données)
+            // Vous pouvez récupérer l'offre via l'API ou la base de données et effectuer l'action appropriée.
+
+            // Exemple de redirection après la validation
+            return RedirectToPage(); // Vous pouvez rediriger vers la même page après la validation
         }
     }
 }

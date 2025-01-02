@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Identity;
 
 namespace GestionVoitureFrontOffice.Models
 {
-    public class User: IdentityUser
+    public class User
     {
         public int Id { get; set; }
         public string FirstName { get; set; }

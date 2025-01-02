@@ -23,3 +23,18 @@ Id	Number	Pseudo	typeVehicleId	Brand	Model	Capacity	Descriptions	TableKilometer	
 25	CTN901	DavidF	7	Mercedes-Benz	Benz Actros	4.00	Le camion citerne parfait pour le transport de liquides, fiable et sécurisé pour les livraisons de carburants et produits chimiques.	95000.00	benz_actros.jpg
 26	TOU234	MikeT	8	Mercedes-Benz	Mixer	3.00	Camion toupie prêt pour le chantier, idéal pour le transport et la livraison de béton frais, une solution efficace pour les grands travaux.	60000.00	mixer.jpg
 27	FGR567	EveW	9	Mercedes-Benz	Vario	2.00	Camion fourgon polyvalent, conçu pour le transport sécurisé de marchandises variées, idéal pour la logistique urbaine.	50000.00	vario.jpg
+
+
+
+
+try
+            {
+            }
+            catch (Exception ex)
+            {
+                // Affichage d'une erreur plus détaillée et gestion de l'exception
+                Console.WriteLine("---Erreur : " + ex.Message);
+
+                // Lancer une exception plus descriptive si nécessaire
+                throw new Exception("Une erreur est survenue lors de la récupération des offres.", ex);
+            }

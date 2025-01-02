@@ -1,0 +1,26 @@
+﻿@page
+@model GestionVoitureFrontOffice.Pages.Admin.RefuserModel
+@{
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+@Html.Partial("~/Pages/Admin/Shared/_Aside.cshtml")
+
+<main id="main" class="main">
+    <section class="section">
+        <div class="container text-center">
+            @if (Model.resulteDelete)
+            {
+                <div class="alert alert-success mt-5" role="alert">
+                    L'offre a été annulée avec succès !
+                </div>
+            }
+            else
+            {
+                <div class="alert alert-danger mt-5" role="alert">
+                    Une erreur est survenue. L'offre n'a pas pu être annulée.
+                </div>
+            }
+            <a href="/Admin/" class="btn btn-primary mt-3">Retour à la liste des offres</a>
+        </div>
+    </section>
+</main>

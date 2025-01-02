@@ -1,0 +1,66 @@
+﻿@page
+@model GestionVoitureFrontOffice.Pages.Admin.ValidationModel
+@{
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+@Html.Partial("~/Pages/Admin/Shared/_Aside.cshtml")
+
+<main id="main" class="main">
+    <section class="section">
+        <div class="row justify-content-center">
+            <div class="col-lg-10">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Liste des véhicules disponibles pour cette mission</h5>
+
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Photo</th>
+                                    <th scope="col">Voiture</th>
+                                    <th scope="col">Marque</th>
+                                    <th scope="col">Catégorie</th>
+                                    <th scope="col">Disponibilite</th>
+                                    <th scope="col">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var trager in Model.listeTrager)
+                                {
+                                    <tr>
+                                        <td><img src="@Url.Content("~/assets/img/vehicle/" + trager.Vehicle.PhotoUrl)" alt="@trager.Vehicle.Model" alt="Voiture 1" height="70"></td>
+                                        <td>@trager.Vehicle.Number</td>
+                                        <td>@trager.Vehicle.Brand</td>
+                                        <td>@trager.Vehicle.Model</td>
+                                        <td>
+                                            @if (trager.Vehicle.IsAvailable) 
+                                            {
+                                                <span class="badge bg-success">Disponible</span>
+                                            }
+                                            else
+                                            {
+                                                <span class="badge bg-danger">Indisponible</span>
+                                            }
+                                        </td>
+                                        <td>
+                                            @if (trager.Vehicle.IsAvailable)
+                                                {
+                                                    <form method="post" action="@Url.Page("AffecterMission", new { vehicleId = trager.Vehicle.Id })">
+                                                        <button type="submit" class="btn btn-primary btn-sm">Affecter à une mission</button>
+                                                    </form>
+                                                }
+                                                else
+                                                {
+                                                    <span class="text-muted">Non disponible</span>
+                                                }
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>

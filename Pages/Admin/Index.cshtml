@@ -4,5 +4,74 @@
     Layout = "~/Pages/Shared/_Layout.cshtml";
 }
 @Html.Partial("~/Pages/Admin/Shared/_Aside.cshtml")
+<main id="main" class="main">
+    <section class="section">
+        <div class="row justify-content-center">
+            <div class="col-lg-10">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Liste des Demandes d'Offres</h5>
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Depart</th>
+                                    <th scope="col">Arriver</th>
+                                    <th scope="col">Model voiture</th>
+                                    <th scope="col">Capacite</th>
+                                    <th scope="col">Montant du facture</th>
+                                    <th scope="col">Date</th>
+                                    <th scope="col">Status</th>
+                                    <th scope="col">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    @if (Model.listeOffre == null || !Model.listeOffre.Any())
+                                    {
+                                        <tr>
+                                            <td colspan="8" class="text-center text-danger">
+                                                Aucune offre disponible. Cela peut être dû à une indisponibilité des voitures ou des trajets ne correspondant pas aux attentes.
+                                            </td>
+                                        </tr>
+                                    }
+                                    else
+                                    {
+                                        @foreach (var offer in Model.listeOffre)
+                                        {
+                                            <tr class="table-@(
+                                                offer.status == 0 ? "danger" :
+                                                offer.status == 1 ? "primary" :
+                                                offer.status == 2 ? "warning" :
+                                                offer.status == 3 ? "success" :
+                                                "secondary")">
+                                                <td>@offer.TragerDeparture?.Destination</td>
+                                                <td>@offer.TragerArriving?.Destination</td>
+                                                <td>@offer.Vehicle?.Model</td>
+                                                <td>@offer.Capacity</td>
+                                                <td>@offer.TotalAmount</td>
+                                                <td>@offer.DateMission.ToString("dd/MM/yyyy")</td>
+                                                <td>@offer.statusName</td>
+                                                <td>
+                                                    <form method="get" action="/Admin/Validation">
+                                                        <input type="hidden" name="idDepart" value="@offer.IdTragerDeparture" />
+                                                        <input type="hidden" name="idArriver" value="@offer.IdTragerArriving" />
+                                                        <button type="submit" class="btn btn-success">Valider</button>
+                                                    </form>
+                                                    <form method="get" action="/Admin/Refuser">
+                                                        <input type="hidden" name="idOffre" value="@offer.Id" />
+                                                        <button type="submit" class="btn btn-danger">Refuser</button>
+                                                    </form>
+                                                </td>
+                                            </tr>
+                                        }
+                                    }
+                                </tr>
 
-<h1>Test</h1>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>

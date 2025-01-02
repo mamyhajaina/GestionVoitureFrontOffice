@@ -1,4 +1,6 @@
-﻿namespace GestionVoitureFrontOffice.Services
+﻿using Microsoft.AspNetCore.Authentication;
+
+namespace GestionVoitureFrontOffice.Services
 {
     public static class HttpContextExtensions
     {
@@ -19,6 +21,12 @@
         public static string GetUserRole(this HttpContext context)
         {
             return context.Items["UserRole"]?.ToString();
+        }
+
+        public static async Task LogoutAsync(this HttpContext context)
+        {
+            await context.SignOutAsync();
+            context.Session.Clear();
         }
     }
 }

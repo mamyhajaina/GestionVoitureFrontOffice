@@ -10,11 +10,13 @@ namespace GestionVoitureFrontOffice.Controllers
     {
         private readonly UserService _userService;
         private readonly JwtTokenService _jwtTokenService;
+        private readonly IHttpContextAccessor _httpContextAccessor;
 
-        public LoginController(UserService userService, JwtTokenService jwtTokenService)
+        public LoginController(UserService userService, JwtTokenService jwtTokenService, IHttpContextAccessor httpContextAccessor)
         {
             _userService = userService;
             _jwtTokenService = jwtTokenService;
+            _httpContextAccessor = httpContextAccessor;
         }
         public async Task<IActionResult> Index()
         {
@@ -27,6 +29,7 @@ namespace GestionVoitureFrontOffice.Controllers
         {
             try
             {
+                _httpContextAccessor.HttpContext?.LogoutAsync();
                 Console.WriteLine("Login");
                 if (string.IsNullOrEmpty(email) || string.IsNullOrEmpty(password))
                 {
@@ -57,9 +60,10 @@ namespace GestionVoitureFrontOffice.Controllers
                     }
                     else if(user.RoleUser.Name == "Admin")
                     {
+                        var token = _jwtTokenService.GenerateToken(user.Id, email, user.RoleUser.Name);
+                        HttpContext.Session.SetString("JwtToken", token);
                         Console.WriteLine("Admin");
                         return RedirectToAction("Index", "Admin");
-
                     }
                     else
                     {
@@ -85,13 +89,6 @@ namespace GestionVoitureFrontOffice.Controllers
                     details = ex.Message // Inclure d'autres détails si nécessaire
                 });
             }
-        }
-
-        [HttpGet]
-        public async Task<IActionResult> Register()
-        {
-            Console.WriteLine("Register");
-            return View();
         }
 
         [HttpPost]
@@ -139,6 +136,10 @@ namespace GestionVoitureFrontOffice.Controllers
 
         }
 
-
+        [HttpGet]
+        public async Task<IActionResult> Logout()
+        {
+            await HttpContext.LogoutAsync();
+        }
     }
 }

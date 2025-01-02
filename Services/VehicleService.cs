@@ -20,7 +20,7 @@ namespace GestionVoitureFrontOffice.Services
             using (SqlConnection con = new SqlConnection(_connectionString))
             {
                 string query = @"SELECT v.[Id] ,v.[Number] ,v.[Pseudo] ,v.[typeVehicleId] ,v.[Brand] ,v.[Model] ,v.[Capacity] ,v.[Descriptions] ,v.[TableKilometer] ,v.[PhotoUrl], tv.[Name] AS TypeVehicleName
-                                FROM [Vehicles] v INNER JOIN [TypeVehicle] tv ON v.[typeVehicleId] = tv.[id]";
+                                FROM [Vehicle] v INNER JOIN [TypeVehicle] tv ON v.[typeVehicleId] = tv.[id]";
                 SqlCommand cmd = new SqlCommand(query, con);
                 try
                 {
@@ -68,7 +68,7 @@ namespace GestionVoitureFrontOffice.Services
 
                 var query = @"
                     SELECT v.[Id] ,v.[Number] ,v.[Pseudo] ,v.[typeVehicleId] ,v.[Brand] ,v.[Model] ,v.[Capacity] ,v.[Descriptions] ,v.[TableKilometer] ,v.[PhotoUrl], tv.[Name] AS TypeVehicleName
-                            FROM [Vehicles] v INNER JOIN [TypeVehicle] tv ON v.[typeVehicleId] = tv.[id]
+                            FROM [Vehicle] v INNER JOIN [TypeVehicle] tv ON v.[typeVehicleId] = tv.[id]
                     WHERE v.[Id] = @Id";
 
                 using (var command = new SqlCommand(query, connection))
@@ -118,7 +118,7 @@ namespace GestionVoitureFrontOffice.Services
                            v.[Capacity], v.[Descriptions], v.[TableKilometer], v.[PhotoUrl],
                            tv.[Name] AS TypeVehicleName,
                            COUNT(*) OVER() AS TotalCount
-                    FROM [Vehicles] v
+                    FROM [Vehicle] v
                     INNER JOIN [TypeVehicle] tv ON v.[TypeVehicleId] = tv.[Id]
                     WHERE (@TextSearched IS NULL OR v.[Number] LIKE '%' + @TextSearched + '%')
                         OR (@TextSearched IS NULL OR v.[Brand] LIKE '%' + @TextSearched + '%')

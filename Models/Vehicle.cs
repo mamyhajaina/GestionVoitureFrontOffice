@@ -13,5 +13,6 @@
         public string Descriptions { get; set; }
         public int TableKilometer { get; set; }
         public string PhotoUrl { get; set; }
+        public bool IsAvailable { get; set; }
     }
 }
